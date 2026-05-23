@@ -1,0 +1,450 @@
+/* RESET E STILI BASE */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #111;
+    padding: 5px 0;
+    border-bottom: 2px solid red;
+}
+
+/* CONTENITORE RICERCA */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ricerca input {
+    width: 350px;
+    padding: 10px 45px 10px 15px; /* Spazio a destra per il bottone */
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* TRASFORMIAMO IL BOTTONE IN UN'ICONA CLICCABILE */
+.btn-lente {
+    position: absolute;
+    right: 5px;
+    background: none;  /* Rimuove lo sfondo del bottone */
+    border: none;      /* Rimuove il bordo del bottone */
+    padding: 5px;
+    cursor: pointer;   /* Fa apparire la manina quando ci passi sopra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.btn-lente img {
+    width: 20px;       /* Dimensione della lente */
+    height: auto;
+    opacity: 0.7;
+}
+
+.btn-lente:hover img {
+    opacity: 1;        /* Si illumina quando ci passi sopra */
+    filter: brightness(1.2); /* la rende più brillante */
+}
+
+/* FORZA ALLINEAMENTO ORIZZONTALE */
+.flex-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+/* BLOCCO ICONE DESTRA */
+.icone-destra {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 15px !important;
+}
+
+.icone-destra a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+}
+
+.icone-destra span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* --- SEZIONE POPUP UTENTE --- */
+.utente-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-popup {
+    display: none; /* Nascosto di default */
+    position: absolute;
+    top: 40px; /* Sotto la navbar */
+    right: 0;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    border-radius: 5px;
+}
+
+.dropdown-popup.show {
+    display: block; /* Mostrato via JS */
+}
+
+.dropdown-popup hr {
+    border: 0;
+    border-top: 1px solid #222;
+    margin: 5px 0;
+}
+
+.dropdown-popup a {
+    color: white !important;
+    padding: 10px 15px !important;
+    text-decoration: none;
+    display: block !important;
+    font-size: 13px !important;
+    transition: 0.3s;
+}
+
+.dropdown-popup a:hover {
+    background-color: #151515;
+    color: red !important;
+}
+
+.popup-header {
+    padding: 10px 15px;
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.logout-btn {
+    color: red !important;
+    font-weight: bold !important;
+}
+/* --- FINE SEZIONE POPUP --- */
+
+/* MENU CATEGORIE */
+.categorie {
+    background: #080808;
+    text-align: center;
+    padding: 5px;
+}
+
+/* Contenitore principale della nav */
+.categorie ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+/* position relative sul LI permette al popup di posizionarsi bene */
+.dropdown-container {
+    position: relative;
+}
+
+/* Il Popup delle categorie */
+.dropdown-popup-cat {
+    display: none; /* Nascosto di default */
+    position: absolute;
+    top: 100%; /* Appare esattamente sotto il link */
+    left: 50%;
+    transform: translateX(-50%); /* Lo centra rispetto alla parola */
+    background-color: #0a0a0a; /* Il tuo colore scuro */
+    border: 1px solid #333;
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+/* Mostra il popup al passaggio del mouse sul contenitore */
+.dropdown-container:hover .dropdown-popup-cat {
+    display: block;
+}
+
+/* Stili interni (identici ai tuoi) */
+.dropdown-popup-cat hr {
+    border: 0;
+    border-top: 1px solid #222;
+    margin: 5px 0;
+}
+
+.dropdown-popup-cat a {
+    color: white !important;
+    padding: 10px 15px !important;
+    text-decoration: none;
+    display: block !important;
+    font-size: 13px !important;
+    text-align: left; /* Allineato a sinistra come l'utente */
+    transition: 0.3s;
+}
+
+.dropdown-popup-cat a:hover {
+    background-color: #151515;
+    color: red !important;
+}
+
+.popup-header {
+    padding: 10px 15px;
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Contenitore per allineare il bottone a destra */
+.footer-sezione {
+    display: flex;
+    justify-content: flex-end; /* Allinea a destra */
+    margin-top: 20px;          /* Spazio sopra il bottone */
+    margin-bottom: 30px;       /* Spazio sotto prima della sezione successiva */
+}
+
+/* Stile del Bottone "Vedi Tutti" */
+.btn-vedi-tutti {
+    background-color: #ff0000;  /* Rosso */
+    color: white !important;    /* Testo bianco */
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 50px;        /* Tondeggiante */
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-vedi-tutti:hover {
+    background-color: #cc0000;  /* Rosso più scuro */
+    transform: scale(1.05);     /* Si ingrandisce leggermente */
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.categorie ul { list-style: none; padding: 0; margin: 0; }
+.categorie li { display: inline; margin: 0 20px; }
+.categorie a { color: white; text-decoration: none; font-weight: bold; font-size: 13px; }
+
+/* MOSAICO PROMO */
+.mosaico-promo {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.col-lunga { width: 480px; }
+.col-lunga img { 
+    width: 100%; 
+    height: 600px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+    display: block;
+}
+
+.col-piccole { 
+    width: 550px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.col-piccole img { 
+    width: 100%; 
+    height: 292.5px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+    display: block;
+}
+
+/* GRIGLIA PRODOTTI */
+.titolo { padding-left: 15px; font-size: 20px; margin-top: 40px; }
+/* CORREZIONE BORDI TITOLI */
+.red-border { border-left: 5px solid rgb(233, 219, 30); }
+.ps5-border { border-left: 5px solid #003791; }
+.nintendo-border { border-left: 5px solid #e60012; }
+.xbox-border { border-left: 5px solid #107c10; } /* Deve chiamarsi xbox-border */
+
+.griglia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #121212;
+    width: 220px;
+    padding: 15px;
+    border: 1px solid #222;
+    text-align: center;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover { border-color: red; transform: translateY(-5px); }
+.card img { max-width: 100%; height: auto; border-radius: 10px; }
+
+.prezzo {
+    color: red;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Stile per il prezzo barrato (quello vecchio) */
+.prezzo-tagliato {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+/* Stile per il prezzo nuovo (evidenziato) */
+.prezzo-scontato {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Contenitore per allineare i prezzi */
+.prezzo-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-compra {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Tasto quando è disabilitato (Esaurito) */
+.btn-compra:disabled {
+    background-color: #333 !important; /* Grigio scuro come richiesto */
+    color: #777 !important;
+    border: none;
+    cursor: not-allowed;
+    pointer-events: none; /* Impedisce il clic a livello browser */
+}
+
+/* Rimuove le freccette brutte dall'input quantità nella griglia */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #444;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+/* AUTH PAGES (Login/Registrati) */
+
+.bg-nero { background-color: #000; margin: 0; font-family: 'Segoe UI', sans-serif; }
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.auth-brand { text-align: center; margin-bottom: 30px; }
+.auth-brand p { color: #444; letter-spacing: 5px; font-size: 10px; margin-top: 10px; }
+
+/* IL BOX DI LOGIN */
+.auth-box {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.auth-header { margin-bottom: 30px; text-align: left; }
+.linea-rossa { display: block; width: 40px; height: 3px; background: red; margin-bottom: 10px; }
+.auth-header h2 { color: white; font-size: 18px; letter-spacing: 2px; margin: 0; }
+
+/* INPUT STILIZZATI */
+.input-group { margin-bottom: 20px; }
+.input-group label { color: #666; font-size: 10px; font-weight: bold; display: block; margin-bottom: 8px; }
+
+.input-group input {
+    width: 100%;
+    background: #111;
+    border: 1px solid #222;
+    padding: 12px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus { border-color: red; background: #151515; }
+
+/* IL BOTTONE "CYBER" */
+.btn-cyber {
+    width: 100%;
+    padding: 15px;
+    background: red;
+    color: white;
+    border: none;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cyber:hover { background: white; color: black; }
+
+.auth-footer { margin-top: 25px; font-size: 12px; color: #444; text-align: center; }
+.auth-footer a { color: red; text-decoration: none; font-weight: bold; margin-left: 5px; }
